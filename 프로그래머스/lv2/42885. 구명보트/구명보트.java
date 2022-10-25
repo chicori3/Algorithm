@@ -2,27 +2,18 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] people, int limit) {
-        int answer = 0;
-        int[] arr = Arrays.stream(people)
-                .sorted()
-                .toArray();
         int left = 0;
-        int right = arr.length - 1;
+        int right = people.length - 1;
+
+        Arrays.sort(people);
 
         while (left < right) {
-            int sum = arr[left] + arr[right];
-
-             if (sum <= limit) {
+            if (people[left] + people[right] <= limit) {
                 left++;
             }
             right--;
-            answer++;
         }
 
-        if (left == right) {
-            answer++;
-        }
-
-        return answer;
+        return people.length - left;
     }
 }
