@@ -12,12 +12,10 @@ class Solution {
         while (left < right) {
             int sum = arr[left] + arr[right];
 
-            if (sum > limit) {
-                right--;
-            } else {
+             if (sum <= limit) {
                 left++;
-                right--;
             }
+            right--;
             answer++;
         }
 
