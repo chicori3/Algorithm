@@ -1,14 +1,14 @@
 class Solution {
     public String solution(String s) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         String[] split = s.toLowerCase().split("");
         boolean flag = true;
 
         for (String str : split) {
-            answer += flag ? str.toUpperCase() : str;
+            sb.append(flag ? str.toUpperCase() : str);
             flag = str.equals(" ");
         }
 
-        return answer;
+        return sb.toString();
     }
 }
