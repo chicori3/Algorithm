@@ -1,31 +1,22 @@
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.stream.Collectors;
+import java.util.*;
 
 class Solution {
-    Deque<Integer> deque = new ArrayDeque<>();
+    PriorityQueue<Integer> queue = new PriorityQueue<>();
 
     public int[] solution(int k, int[] score) {
         ArrayList<Integer> answer = new ArrayList<>();
 
         for (int num : score) {
-            deque.add(num);
-            sort();
-            if (deque.size() > k) {
-                deque.pollFirst();
+            queue.add(num);
+
+            if (queue.size() > k) {
+                queue.poll();
             }
-            answer.add(deque.peekFirst());
+            answer.add(queue.peek());
         }
 
         return answer.stream()
                 .mapToInt(Integer::intValue)
                 .toArray();
-    }
-
-    public void sort() {
-        deque = deque.stream()
-                .sorted()
-                .collect(Collectors.toCollection(ArrayDeque::new));
     }
 }
