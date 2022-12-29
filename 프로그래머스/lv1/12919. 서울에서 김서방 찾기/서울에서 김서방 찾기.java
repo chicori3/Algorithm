@@ -4,7 +4,7 @@ class Solution {
 
         for (int i = 0; i < seoul.length; i++) {
             if (seoul[i].equals("Kim")) {
-                sb.append(i).append("에 있다");
+                return sb.append(i).append("에 있다").toString();
             }
         }
         return sb.toString();
